@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid</title>
+  <link rel="stylesheet" href="/css/project01.css" type="text/css">
+</head>
+<body>
+  <h1>Grid그리드</h1>
+  <div class="all">
+    <div class="top">
+      <input class="inputId" type="text" placeholder="아이디" id="id">
+      <input class="inputName" type="text" placeholder="이름" id="name">
+      
+      <label class="gender"><input type="radio" name="gender" value="male">남</label>
+      <label class="gender"><input type="radio" name="gender" value="female">녀</label>
+      
+      <select id="country" onchange="optionChange()">
+        <option value="country" style="color: rgb(194, 194, 194);" selected disabled>국가</option>
+        <option value="korea">한국</option>
+        <option value="japan">일본</option>
+        <option value="china">중국</option>
+      </select>
+
+      <select id="city">
+        <option value="city" selected disabled>도시</option>
+        <option></option>
+      </select>
+      
+      <input type="date" name="dayOfStart">
+      <input type="date" name="endOfStart">
+    </div>
+    <div class="middle">
+      <input type="button" value="조회">
+      <input type="button" value="저장">
+      <input type="button" value="엑셀다운">
+      <input type="button" value="삭제">
+    </div>
+    <div></div>
+    <div class="bottom">
+      <table>
+        <tr>
+          <th>선택</th>
+          <th>아이디</th>
+          <th>이름</th>
+          <th>성별</th>
+          <th>국가</th>
+          <th>도시</th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="" value=""></td>
+          <td>111</td>
+          <td>111</td>
+          <td>111</td>
+          <td>111</td>
+          <td>111</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="" value=""></td>
+          <td>111</td>
+          <td>111</td>
+          <td>111</td>
+          <td>111</td>
+          <td>111</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" name="" value=""></td>
+          <td>111</td>
+          <td>111</td>
+          <td>111</td>
+          <td>111</td>
+          <td>111</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 국가 메뉴 서브 도시 -->
+  <script>
+    function optionChange(){
+      var korea = ['서울', '인천', '부산'];
+      var japan = ['도쿄', '오사카', '삿포르'];
+      var china = ['베이징', '상하이', '우한'];
+      var v = $('#country').val();
+      var o;
+      if (v == 'korea'){
+        o = korea;
+      }else if (v == 'japan'){
+        o = japan;
+      }else if (v == 'china'){
+        o = china;
+      }else{
+        o = [];
+      }
+      $('#city').empty();
+      $('#city').append('<option value="city" style="color: rgb(194, 194, 194);" selected disabled>도시</option>');
+      for(var i = 0; i<o.length; i++){
+        $('#city').append('<option>' + o[i] + '</option>');
+      }
+    }
+  </script>
+  <!--제이쿼리-->
+  <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+</body>
+</html>
